@@ -38,7 +38,7 @@ withCredentials([usernamePassword(credentialsId: 'docker-creds', passwordVariabl
         docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
         docker push ${DOCKER_USER}/apache:3.0
         """
-        build 'k8s'
+        build  'k8s'
     }
         }
     }
