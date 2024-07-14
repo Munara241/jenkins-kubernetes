@@ -28,7 +28,7 @@ podTemplate(cloud: 'kubernetes', label: 'docker', yaml: template) {
         git branch: 'main', url: 'https://github.com/Munara241/jenkins-kubernetes.git'
     }
 
-withCredentials([usernamePassword(credentialsId: 'd648bf84-0d5a-4815-80a6-a0f92078fc5b', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+withCredentials([usernamePassword(credentialsId: 'docker-creds', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
 
     stage ("Docker build") {
         sh "docker build -t ${DOCKER_USER}/apache:1.0 ."
